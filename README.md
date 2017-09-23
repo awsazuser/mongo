@@ -12,4 +12,4 @@ docker cp primer-dataset.json $(docker ps -qf label=com.docker.swarm.service.nam
 
 docker exec -it $(docker ps -qf label=com.docker.swarm.service.name=mon_mongo1) mongoimport --db newdb --collection restaurants --file /tmp/primer-dataset.json
 
-docker exec -it $(docker ps -qf label=com.docker.swarm.service.name=${app}_mongo1) mongo --eval 'rs.status()'
+docker exec -it $(docker ps -qf label=com.docker.swarm.service.name=mon_mongo1) mongo --eval 'rs.status()'

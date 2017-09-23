@@ -11,3 +11,5 @@ wget https://raw.githubusercontent.com/mongodb/docs-assets/primer-dataset/primer
 docker cp primer-dataset.json $(docker ps -qf label=com.docker.swarm.service.name=mon_mongo1):/tmp/
 
 docker exec -it $(docker ps -qf label=com.docker.swarm.service.name=mon_mongo1) mongoimport --db newdb --collection restaurants --file /tmp/primer-dataset.json
+
+docker exec -it $(docker ps -qf label=com.docker.swarm.service.name=${app}_mongo1) mongo --eval 'rs.status()'

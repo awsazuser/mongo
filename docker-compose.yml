@@ -1,7 +1,7 @@
 version: "3"
 services:
   mongo1:
-    image: mongo:latest
+    image: mongo349:latest
     hostname: mongo1
     deploy:
       placement:
@@ -12,7 +12,7 @@ services:
       - mongonw
     command: mongod --replSet example
   mongo2:
-    image: mongo:latest
+    image: mongo349:latest
     hostname: mongo2
     deploy:
       placement:
@@ -21,7 +21,7 @@ services:
       - mongonw
     command: mongod --replSet example
   mongo3:
-    image: mongo:latest
+    image: mongo349:latest
     hostname: mongo3
     deploy:
       placement:

@@ -1,0 +1,52 @@
+version: "3"
+services:
+  mongo1:
+    image: mongo349:latest
+    hostname: mongo1
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports:
+    - "27017:27017"
+    networks:
+      - mongonw
+    command: mongod --replSet example
+  mongo2:
+    image: mongo349:latest
+    hostname: mongo2
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - mongonw
+    command: mongod --replSet example
+  mongo3:
+    image: mongo349:latest
+    hostname: mongo3
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - mongonw
+    command: mongod --replSet example
+  mongo4:
+    image: mongo349:latest
+    hostname: mongo4
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - mongonw
+    command: mongod --replSet example
+  mongo5:
+    image: mongo349:latest
+    hostname: mongo5
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - mongonw
+    command: mongod --replSet example
+networks:
+  mongonw:
+
